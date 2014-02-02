@@ -1,0 +1,10 @@
+<!ELEMENT city ( name, population ) >
+<!ELEMENT countries ( country+ ) >
+<!ELEMENT country ( city | language )* >
+<!ATTLIST country area NMTOKEN #REQUIRED >
+<!ATTLIST country name CDATA #REQUIRED >
+<!ATTLIST country population NMTOKEN #REQUIRED >
+<!ELEMENT language ( #PCDATA ) >
+<!ATTLIST language percentage NMTOKEN #REQUIRED >
+<!ELEMENT name ( #PCDATA ) >
+<!ELEMENT population ( #PCDATA ) >
