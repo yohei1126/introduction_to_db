@@ -1,0 +1,26 @@
+-- Find the age of the oldest person (or people) who eat mushroom pizza. 
+-- (This query is quite challenging; congratulations if you get it right.) 
+
+-- 1. find all ages
+-- 2. find all ages that are less than another ages
+-- 3. take the difference
+
+(\project_{age}
+  (Person
+  \join
+  \select_{pizza='mushroom'} Eats)
+\diff
+(\rename_{age}
+\project_{age1}
+\select_{age1<age2}
+(\rename_{age1}
+  (\project_{age}
+    (Person
+    \join
+    \select_{pizza='mushroom'} Eats))
+\join
+\rename_{age2}
+  (\project_{age}
+    (Person
+    \join
+    \select_{pizza='mushroom'} Eats)))))
