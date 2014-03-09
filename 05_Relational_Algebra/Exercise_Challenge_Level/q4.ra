@@ -1,0 +1,15 @@
+-- Q4 Find all pizzerias that serve every pizza eaten by people over 30. 
+-- solution division : all possible pair - not wanted par
+-- http://www.cs.arizona.edu/~mccann/research/divpresentation.pdf
+
+(\project_{pizzeria}
+((\project_{pizzeria} Serves)
+ \cross
+(\project_{pizza}(\select_{age>30} (Person \join Eats)))))
+\diff
+(\project_{pizzeria}
+(((\project_{pizzeria} Serves)
+ \cross
+(\project_{pizza}(\select_{age>30} (Person \join Eats))))
+\diff
+(\project_{pizzeria,pizza} Serves)))
